@@ -4,6 +4,10 @@ Here is the updated README.md with all necessary code blocks in the proper forma
 
 Welcome to the **Deepsake VS Code Extension**! This extension allows you to seamlessly interact with the **Deepsake R1 Model** using **Ollama** locally within Visual Studio Code. The Deepsake model is open-source, allowing you to run it locally without sending your data to any external servers.
 
+## Preview
+
+![image](./image.png)
+
 ## **Overview**
 
 This extension integrates with the Deepsake R1 model and provides an interactive chat interface directly inside VS Code. You can chat with the model, receive real-time responses, and maintain full control of your data—everything runs locally.
