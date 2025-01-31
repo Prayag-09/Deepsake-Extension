@@ -1,71 +1,126 @@
-# deepsake README
+Here is the updated README.md with all necessary code blocks in the proper format:
 
-This is the README for your extension "deepsake". After writing up a brief description, we recommend including the following sections.
+# Deepsake VS Code Extension
 
-## Features
+Welcome to the **Deepsake VS Code Extension**! This extension allows you to seamlessly interact with the **Deepsake R1 Model** using **Ollama** locally within Visual Studio Code. The Deepsake model is open-source, allowing you to run it locally without sending your data to any external servers.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## **Overview**
 
-For example if there is an image subfolder under your extension project workspace:
+This extension integrates with the Deepsake R1 model and provides an interactive chat interface directly inside VS Code. You can chat with the model, receive real-time responses, and maintain full control of your data—everything runs locally.
 
-\!\[feature X\]\(images/feature-x.png\)
+## **Features**
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Chat with the Deepsake model**: Direct communication with the model inside VS Code.
+- **Real-time Responses**: Receive live streaming responses from the model.
+- **Privacy-focused**: All data remains on your machine using Ollama—no external data transfers.
+- **Customizable Webview**: A clean and user-friendly interface to chat with the model directly within VS Code.
 
-## Requirements
+## **Pre-requisites**
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Before you start, ensure you have the following installed:
 
-## Extension Settings
+- **Visual Studio Code**: A popular IDE for development.
+- **Ollama**: The tool that powers the local Deepsake model.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## **Installation Steps**
 
-For example:
+### 1. **Install VS Code and Ollama**
 
-This extension contributes the following settings:
+If you haven’t already installed VS Code or Ollama, download and install them:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- [Download VS Code](https://code.visualstudio.com/)
+- [Download Ollama](https://ollama.com/download)
 
-## Known Issues
+### 2. **Clone or Download the Repository**
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Clone or download this repository to your local machine:
 
-## Release Notes
+```bash
+git clone https://github.com/Prayag-09/Deepsake-Extension.git
+cd Deepsake-Extension
 
-Users appreciate release notes as you update your extension.
+3. Install Dependencies
 
-### 1.0.0
+To install the required dependencies for the extension, run the following command:
 
-Initial release of ...
+npm install
 
-### 1.0.1
+4. Install Ollama
 
-Fixed issue #.
+To interact with the Deepsake model, install Ollama:
 
-### 1.1.0
+npm install ollama
 
-Added features X, Y, and Z.
+Development Steps
 
----
+1. Generate the Extension Boilerplate
 
-## Following extension guidelines
+Run the following command to generate the extension’s template:
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+npx --package yo --package generator-code -- yo code
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+Follow the prompts and fill in the default values to create the extension template.
 
-## Working with Markdown
+2. Configure TypeScript
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+Update your tsconfig.json to match the following configuration:
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+{
+  "compilerOptions": {
+    "module": "Node16",
+    "target": "ES2022",
+    "outDir": "out",
+    "lib": ["DOM", "ES2022"],
+    "sourceMap": true,
+    "rootDir": "src",
+    "strict": true
+  }
+}
 
-## For more information
+3. Edit Extension Code
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Modify src/extension.ts to include the core logic for interacting with Ollama API and handling messages between VS Code and the Deepsake model.
 
-**Enjoy!**
+Here’s an example of how to set up your chat handler:
+
+import ollama from 'ollama';
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('Deepsake extension is now active!');
+    // Your command registration and logic here
+}
+
+Running the Extension Locally
+
+1. Open Extension in VS Code
+
+Open the extension directory in VS Code.
+
+2. Run the Extension
+
+Press F5 or click on the Run button in the Activity Bar. This will launch a new window (Extension Development Host) where you can test the extension.
+
+3. Start Using the Extension
+
+In the new window, press Ctrl+Shift+P and select the Deepsake: Start command. Type a message and hit Send to communicate with the model. The bot will respond in real-time.
+
+How It Works
+	•	Backend: The extension communicates with the Deepsake model through the Ollama API.
+	•	Frontend: The extension uses a webview interface inside VS Code to provide an interactive UI for the chat experience.
+
+Troubleshooting
+
+If you encounter any issues, check the following:
+	•	Ollama Installation: Ensure that Ollama is properly installed and running.
+	•	VS Code Version: Make sure you’re using the latest version of VS Code.
+	•	Dependencies: Double-check that all required dependencies are installed by running:
+
+npm install
+
+Contributing
+
+Feel free to contribute to this project by submitting issues, feature requests, or pull requests. If you encounter bugs or want to suggest improvements, please open an issue on the GitHub repository.
+
+This version includes all relevant Bash commands inside code blocks for better readability and formatting. Let me know if you need further adjustments!
+```
